@@ -1,8 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Call makeCacheMatrix with a square matrix first
+## then call cacheSolve and pass the makeCacheMatrix 
+## to get the inverse
 
-## Write a short comment describing this function
 
+## Make a cacheable Matrix
+## call this function First!
+## Parameters: x: invertible or nonsingular square matrix
+## Returns cachaable Matrix Object
 makeCacheMatrix <- function(x = matrix()) {
   mInverse <- NULL
   set <- function(newMatrix) {
@@ -18,8 +22,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+## Finds the Inverse of a cacheable Matrix object (makeCacheMatrix)
+## Parameters: x: makeCacheMatrix
+## Return: inverse of matrix from  makeCacheMatrix
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   mInv <- x$getInverse()
@@ -28,7 +33,7 @@ cacheSolve <- function(x, ...) {
     return(mInv)
   }
   data <- x$get()
-  mInverse <- mean(data, ...)
+  mInverse <- solve(data, ...)
   x$setInverse(mInverse)
   mInverse
   
